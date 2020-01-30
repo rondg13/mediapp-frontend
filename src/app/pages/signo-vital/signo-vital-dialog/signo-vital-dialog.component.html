@@ -1,0 +1,23 @@
+<h1 *ngIf="signoVital.paciente!=''">{{nombrePaciente}}</h1><br>
+<div>
+    <mat-form-field>
+        <input  matInput placeholder="Temperatura" [(ngModel)]="signoVital.temperatura">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Pulso" [(ngModel)]="signoVital.pulso">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Ritmo respiratorio" [(ngModel)]="signoVital.ritmoRespiratorio">
+    </mat-form-field>
+    <!--<mat-form-field>
+        <input matInput placeholder="Fecha" [(ngModel)]="signoVital.fecha">
+    </mat-form-field>-->
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Escoge una fecha" [max]="maxFecha"
+            [(ngModel)]="signoVital.fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
